@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewPerformanceIssueReproductionApp.MainPage">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+
+        <CollectionView  VerticalOptions="FillAndExpand" ZIndex="1" RemainingItemsThreshold="5" RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}" ItemsSource="{Binding Items}" ItemsLayout="VerticalGrid, 2">
+
+            <CollectionView.ItemTemplate>
+
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Border >
+
+                        <Grid ColumnDefinitions="*,*,Auto" ColumnSpacing="8">
+                            <StackLayout Grid.Column="0">
+                                <Image Source="{Binding HeaderImageSource}" HeightRequest="45" WidthRequest="45" VerticalOptions="Center"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
+
+                                <Label Text="SAMPLE HEADER"/>
+                                <Label Text="{Binding Text}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="2" >
+                                <StackLayout>
+                                    <Image Source="sample2.png" HeightRequest="15" WidthRequest="15"/>
+                                    <Image Source="sample3.png" HeightRequest="15" WidthRequest="15"/>
+                                    <Image Source="sample4.png" HeightRequest="15" WidthRequest="15"/>
+                                    <Image Source="dotnet_bot.png" HeightRequest="15" WidthRequest="15"/>
+                                </StackLayout>
+                            </StackLayout>
+
+
+
+                        </Grid>
+
+                    </Border>
+                    </StackLayout>
+                    
+
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button ZIndex="2" Text="Sample Button"/>
+
+    </StackLayout>
+
+</ContentPage>
